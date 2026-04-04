@@ -3231,5 +3231,68 @@
   line-height: 1.5;
 }
 </style>
+<style>
+  /* 📱 RESPONSIVE CELULAR */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 0 15px;
+  }
+
+  /* NAV */
+  .nav-links {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* BOTONES */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* TARJETAS */
+  .cards {
+    flex-direction: column;
+  }
+
+  /* TIMELINE */
+  .timeline-content {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .timeline-img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .timeline-right {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+}
+</style>
 </body>
 </html>
