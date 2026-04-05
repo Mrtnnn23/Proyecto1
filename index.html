@@ -3294,11 +3294,37 @@
 
   /* FOOTER */
   .footer-container {
+    display: flex;
     flex-direction: column;
     gap: 20px;
-    text-align: center;
+    text-align: left;
+    padding: 20px;
+  }
+  .footer-container h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  .footer-container a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .footer-container > div {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
   }
 
+.footer-container a:hover {
+  color: #ffffff;
+}
 }
 </style>
 <style>
