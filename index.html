@@ -3173,10 +3173,14 @@
 
 @media (max-width: 768px) {
   .footer-grid {
-    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: 1fr 1 fr;
+    gap: 30px;
+    text-align: left;
+  }
+  .footer-brand {
+    grid-column: span 2;
     text-align: center;
   }
-
   .footer-social {
     justify-content: center;
   }
