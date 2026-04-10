@@ -1093,8 +1093,13 @@
           <span></span>
           <span></span>
         </label>
+        
+        <label for= "menu-tbn" class="menu-overlay"></label>
 
         <div class="menu-mobile">
+
+          <label for="menu-btn" class="menu-close">✕</label>
+
           <a href="#historia">Historia</a>
           <a href="#plantel">Plantel</a>
           <a href="#cuerpo-tecnico">Cuerpo técnico</a>
@@ -1122,32 +1127,24 @@
 </header>
 <style>
 
-.menu-toggle {
-  position: relative;
+/* OVERLAY OSCURO */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 999;
 }
 
-.menu-icon {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 6px;
-  z-index: 1001;
+/* ACTIVAR OVERLAY */
+.menu-toggle input:checked ~ .menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.menu-icon span {
-  width: 28px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.4s ease;
-}
-
-/* ocultar checkbox */
-#menu-btn {
-  display: none;
-}
-
-/* MENU PRO */
+/* MENU */
 .menu-mobile {
   position: fixed;
   top: 0;
@@ -1174,18 +1171,52 @@
   z-index: 1000;
 }
 
+/* ABRIR MENU */
+.menu-toggle input:checked ~ .menu-mobile {
+  left: 0;
+}
+
+/* BOTÓN X */
+.menu-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-close:hover {
+  transform: rotate(90deg) scale(1.2);
+  color: #f4c542;
+}
+
 /* LINKS */
 .menu-mobile a {
   color: white;
   text-decoration: none;
   font-size: 22px;
-  font-weight: 500;
 
   opacity: 0;
   transform: translateY(20px);
-
-  transition: all 0.4s ease;
+  transition: 0.4s ease;
 }
+
+/* ANIMACIÓN LINKS */
+.menu-toggle input:checked ~ .menu-mobile a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* DELAY PRO */
+.menu-mobile a:nth-child(2) { transition-delay: 0.1s; }
+.menu-mobile a:nth-child(3) { transition-delay: 0.2s; }
+.menu-mobile a:nth-child(4) { transition-delay: 0.3s; }
+.menu-mobile a:nth-child(5) { transition-delay: 0.4s; }
+.menu-mobile a:nth-child(6) { transition-delay: 0.5s; }
+.menu-mobile a:nth-child(7) { transition-delay: 0.6s; }
+.menu-mobile a:nth-child(8) { transition-delay: 0.7s; }
 
 /* HOVER */
 .menu-mobile a:hover {
@@ -1193,40 +1224,35 @@
   transform: scale(1.1);
 }
 
-/* ACTIVAR MENU */
-.menu-toggle input:checked ~ .menu-mobile {
-  left: 0;
+/* HAMBURGUESA */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-/* ANIMACION LINKS */
-.menu-toggle input:checked ~ .menu-mobile a {
-  opacity: 1;
-  transform: translateY(0);
+.menu-icon span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.4s;
 }
 
-/* DELAY PRO */
-.menu-mobile a:nth-child(1) { transition-delay: 0.1s; }
-.menu-mobile a:nth-child(2) { transition-delay: 0.2s; }
-.menu-mobile a:nth-child(3) { transition-delay: 0.3s; }
-.menu-mobile a:nth-child(4) { transition-delay: 0.4s; }
-.menu-mobile a:nth-child(5) { transition-delay: 0.5s; }
-.menu-mobile a:nth-child(6) { transition-delay: 0.6s; }
-.menu-mobile a:nth-child(7) { transition-delay: 0.7s; }
-
-/* ANIMACION HAMBURGUESA → X */
+/* ANIMACIÓN A X */
 .menu-toggle input:checked + .menu-icon span:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
 }
-
 .menu-toggle input:checked + .menu-icon span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-toggle input:checked + .menu-icon span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* SOLO MOVIL */
+/* SOLO MOBILE */
 @media (max-width: 768px) {
 
   .menu-icon {
